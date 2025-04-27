@@ -12,15 +12,20 @@ int main(){
     for(int i = 0; i < e; i++){
         int w, u;
         cin >> w >> u;
-        graph[w].push_back(u);
-        graph[u].push_back(w);
+        graph[w-1].push_back(u-1);
+        graph[u-1].push_back(w-1);
     }
 
     for(int i = 0; i < v; i++){
-        cout << "Vertice do vertice " << i << ": ";
-        for(int vizinhos : graph[i]) 
-            cout << vizinhos << " ";
-        cout << endl;
+        int somaVizinhos = 0;
+
+        for(int vizinhos : graph[i]) {
+            for(int vizinhos2 : graph[vizinhos]) {
+                somaVizinhos++;
+            }
+        }
+
+        cout << somaVizinhos << " ";
     }
 
     return 0;

@@ -46,8 +46,7 @@ int main(){
         int u, w;
         cin >> u >> w;
 
-        graph[u].push_back(w);
-        graph[w].push_back(u);
+        graph[u-1].push_back(w-1);
     }
 
     vector<int> pre(v, -1);
@@ -59,7 +58,7 @@ int main(){
     bfs(graph, pre, pai, dist, 0);
 
     for(int i = 0; i < v; i++)
-        // cout << "Vertice " << i << " pai " << pai[i] << " dist " << dist[i] << endl;
+        cout << dist[i] << " ";
 
     return 0;
 }
