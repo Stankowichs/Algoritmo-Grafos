@@ -112,9 +112,7 @@ int main(int argc, char* argv[]){
         prim(n, inicio, grafo, fout, mostrar_solucao);
         fout.close();
     }
-    else{
-        prim(n, inicio, grafo, cout, mostrar_solucao);
-    }
+    else prim(n, inicio, grafo, cout, mostrar_solucao);
 
     return 0;
 }

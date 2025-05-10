@@ -1,18 +1,15 @@
 CPP = g++
-CFLAGS = -Wall -O2
+CFLAGS = -std=c++11 -Wall
 
-BIN_DIR = ../Bat1/
-SRC_DIR = .
-OBJ_DIR = $(BIN_DIR)obj
+SRC = dijkstra.cpp
+BIN_DIR = ../bat1/
+OUT = $(BIN_DIR)dijkstra.bin
 
-BIN = $(BIN_DIR)dijkstra.bin
+all: $(OUT)
 
-$(BIN): $(SRC_DIR)/dijkstra.cpp | $(BIN_DIR)
+$(OUT): $(SRC)
+	@mkdir -p $(BIN_DIR)
 	$(CPP) $(CFLAGS) -o $@ $<
 
-$(BIN_DIR):
-	mkdir -p $(BIN_DIR)
-
 clean:
-	rm -f $(BIN)
-	rm -rf $(OBJ_DIR)
+	rm -f $(OUT)
