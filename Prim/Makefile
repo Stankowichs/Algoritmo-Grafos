@@ -1,18 +1,15 @@
 CPP = g++
 CFLAGS = -std=c++11 -Wall
 
-BIN_DIR = ../Bat1/
-SRC_DIR = .
-OBJ_DIR = $(BIN_DIR)obj
+SRC = prim.cpp
+BIN_DIR = ../bat1/
+OUT = $(BIN_DIR)prim.bin
 
-BIN = $(BIN_DIR)prim.bin
+all: $(OUT)
 
-$(BIN): $(SRC_DIR)/prim.cpp | $(BIN_DIR)
+$(OUT): $(SRC)
+	@mkdir -p $(BIN_DIR)
 	$(CPP) $(CFLAGS) -o $@ $<
 
-$(BIN_DIR):
-	mkdir -p $(BIN_DIR)
-
 clean:
-	rm -f $(BIN)
-	rm -rf $(OBJ_DIR)
+	rm -f $(OUT)
