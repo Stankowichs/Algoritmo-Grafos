@@ -57,7 +57,7 @@ int main(int argc, char* argv[]){
             case 'i': inicio = stoi(optarg); break;
             case 'o': saida = optarg; salvararq = true; break;
             case 'h':
-                cout << "Uso: ./prim -f <arquivo> -i <vertice> [-o <arquivo>] [-h]\n";
+                cout << "Uso: ./dijkstra.bin -f <arquivo> -i <vertice> [-o <arquivo>] [-h]\n";
                 return 0;
             default:
                 cerr << "Argumentos invalidos. Use -h para ajuda\n";
