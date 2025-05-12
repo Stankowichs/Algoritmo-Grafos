@@ -66,7 +66,7 @@ int main(int argc, char* argv[]){
             case 'o': saida = optarg; salvararq = true; break;
             case 's': mostrar_solucao = true; break;
             case 'h':
-                cout << "Uso: ./prim -f <arquivo> -i <vertice> [-s] [-o <arquivo>] [-h]\n";
+                cout << "Uso: ./prim.bin -f <arquivo> -i <vertice> [-s] [-o <arquivo>] [-h]\n";
                 return 0;
             default:
                 cerr << "Argumentos invalidos. Use -h para ajuda\n";
