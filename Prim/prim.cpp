@@ -8,10 +8,6 @@
 
 using namespace std;
 
-struct Aresta{
-    int u, v;
-};
-
 void prim(int n, int inicio, const vector<vector<pair<int,int>>>& grafo, ostream& saida, bool mostrar_solucao){
     vector<bool> visitado(n+1, false);
     priority_queue<pair<int,int>, vector<pair<int,int>>, greater <pair<int,int>>> heap;
