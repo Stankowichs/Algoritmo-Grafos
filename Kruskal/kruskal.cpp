@@ -1,7 +1,5 @@
 #include <iostream>
-#include <queue>
 #include <vector>
-#include <limits>
 #include <string>
 #include <fstream>
 #include <unistd.h>
@@ -63,10 +61,10 @@ void kruskal(int n, const vector<vector<pair<int, int>>>& grafo, ostream& saida,
         for(size_t i = 0; i < arestas_AGM.size(); ++i){
             saida << "(" << arestas_AGM[i].first << "," << arestas_AGM[i].second << ") ";
         }
-        saida << endl;
+        saida << "\n";
     }
     else{
-        saida << custototal << endl;
+        saida << custototal << "\n";
     }
 }
 
