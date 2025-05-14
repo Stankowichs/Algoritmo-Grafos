@@ -9,6 +9,22 @@
 
 using namespace std;
 
+int find(int v, vector<int>& pai){
+    if(pai[v] != v) pai[v] = find(pai[v], pai);
+    return pai[v];
+}
+
+void union_(int a, int b, vector<int>& pai, vector<int>& rank){
+    a = find(a, pai);
+    b = find(b, pai);
+
+    if(rank[a] >= rank[b]){
+        pai[b] = a;
+        if(rank[a] == rank[b]) rank[a]++;
+    }
+    else pai[a] = b;
+}
+
 void kruskal(int n, const vector<vector<pair<int, int>>>& grafo, ostream& saida, bool mostrar_solucao){
     vector<pair<int, int>> arestas_AGM;
     int custototal = 0;
@@ -18,42 +34,25 @@ void kruskal(int n, const vector<vector<pair<int, int>>>& grafo, ostream& saida,
 
     vector<tuple<int, int, int>> arestas;
 
-    function<int(int)> find = [&](int v){/////////////////
-        if (pai[v] != v){
-            pai[v] = find(pai[v]);
-        }
-        return pai[v];
-    };
-
-    auto union_ = [&](int a, int b){///////////////
-        a = find(a);
-        b = find(b);
-        if(rank[a] >= rank[b]){
-            pai[b] = a;
-            if(rank[a] == rank[b]) rank[a]++;
-        }
-        else pai[a] = b;
-    };
-
     for(int u = 1; u <= n; u++){
         for(size_t j = 0; j < grafo[u].size(); ++j){
             int v = grafo[u][j].first;
             int peso = grafo[u][j].second;
-            if(u < v) arestas.push_back(make_tuple(peso, u , v));//////////////////
+            if(u < v) arestas.push_back(make_tuple(peso, u , v));
         }
     }
-    sort(arestas.begin(), arestas.end());////////////////
+    sort(arestas.begin(), arestas.end());
 
     for(size_t i = 0; i < arestas.size(); ++i){
-        int peso = get<0>(arestas[i]);/////////
-        int u = get<1>(arestas[i]);//////////
-        int v = get<2>(arestas[i]);/////
+        int peso = get<0>(arestas[i]);
+        int u = get<1>(arestas[i]);
+        int v = get<2>(arestas[i]);
 
-        if(find(u) != find(v)){
+        if(find(u, pai) != find(v, pai)){
             arestas_AGM.push_back(make_pair(u, v));
             custototal += peso;
 
-            union_(u, v);
+            union_(u, v, pai, rank);
         }
     }
 
