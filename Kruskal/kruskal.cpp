@@ -35,7 +35,7 @@ void kruskal(int n, const vector<vector<pair<int, int>>>& grafo, ostream& saida,
     vector<tuple<int, int, int>> arestas;
 
     for(int u = 1; u <= n; u++){
-        for(size_t j = 0; j < grafo[u].size(); ++j){
+        for(size_t j = 0; j < grafo[u].size(); j++){
             int v = grafo[u][j].first;
             int peso = grafo[u][j].second;
             if(u < v) arestas.push_back(make_tuple(peso, u , v));
@@ -43,7 +43,7 @@ void kruskal(int n, const vector<vector<pair<int, int>>>& grafo, ostream& saida,
     }
     sort(arestas.begin(), arestas.end());
 
-    for(size_t i = 0; i < arestas.size(); ++i){
+    for(size_t i = 0; i < arestas.size(); i++){
         int peso = get<0>(arestas[i]);
         int u = get<1>(arestas[i]);
         int v = get<2>(arestas[i]);
@@ -57,7 +57,7 @@ void kruskal(int n, const vector<vector<pair<int, int>>>& grafo, ostream& saida,
     }
 
     if(mostrar_solucao == true){
-        for(size_t i = 0; i < arestas_AGM.size(); ++i){
+        for(size_t i = 0; i < arestas_AGM.size(); i++){
             saida << "(" << arestas_AGM[i].first << "," << arestas_AGM[i].second << ") ";
         }
         saida << "\n";
