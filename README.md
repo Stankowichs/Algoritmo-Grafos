@@ -1,6 +1,6 @@
 # 🕸️ ALGORITMO DE TEORIA DOS GRAFOS
 
-## Algoritmos implementados:
+## ✅ Algoritmos implementados:
 - 🔹 **Dijkstra**
 - 🔹 **Floyd-Warshall**
 - 🔹 **Kosaraju**
