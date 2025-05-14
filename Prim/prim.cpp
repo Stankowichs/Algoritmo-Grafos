@@ -27,9 +27,7 @@ void prim(int n, int inicio, const vector<vector<pair<int,int>>>& grafo, ostream
         visitado[u] = true;
         custototal += peso;
 
-        if (u != inicio) {
-            arestas_AGM.push_back(make_pair(pai[u], u));
-        }
+        if (u != inicio) arestas_AGM.push_back(make_pair(pai[u], u));
 
         for (size_t i = 0; i < grafo[u].size(); ++i) {
             int v = grafo[u][i].first;
@@ -47,9 +45,7 @@ void prim(int n, int inicio, const vector<vector<pair<int,int>>>& grafo, ostream
         }
         saida << endl;
     }
-    else {
-        saida << custototal << endl;
-    }
+    else saida << custototal << endl;
 }
 
 int main(int argc, char* argv[]){
