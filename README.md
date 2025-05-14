@@ -1,4 +1,4 @@
-#     🕸️ ALGORITMO DE TEORIA DOS GRAFOS
+# 🕸️ ALGORITMO DE TEORIA DOS GRAFOS
 
 ### ✅ Algoritmos implementados:
 - 🔹 **Dijkstra**
