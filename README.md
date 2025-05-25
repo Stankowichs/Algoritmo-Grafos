@@ -35,7 +35,7 @@ Identifica componentes fortemente conectadas em grafos direcionados, utilizando 
 1. **Clone este repositório**:
 
 ```bash
-git clone https://github.com/DsML01/Algoritmo-Grafos.git
+git clone https://github.com/Stankowichs/Algoritmo-Grafos.git
 ```
 
 2. **Navegue até o diretório do algoritmo desejado**:
